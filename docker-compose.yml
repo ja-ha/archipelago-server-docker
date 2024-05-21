@@ -1,0 +1,13 @@
+services:
+  archipelago:
+    container_name: archipelago
+    build:
+      context: build
+      args:
+        - VERSION=0.4.6
+    network_mode: host
+    volumes:
+       - ./db:/db
+       - ./uploads:/uploads
+       - ./logs:/opt/archipelago/logs
+       - ./config.yaml:/opt/archipelago/config.yaml

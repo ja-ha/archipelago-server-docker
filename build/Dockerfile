@@ -1,7 +1,7 @@
 FROM debian:bookworm-slim
 
 ARG VERSION=0.4.6
-ARG USERNAME=user-name-goes-here
+ARG USERNAME=nonroot
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
@@ -13,7 +13,7 @@ RUN apt-get update && apt-get upgrade -y && \
 
 # Create the user
 RUN groupadd --gid $USER_GID $USERNAME \
-    && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME
+    && useradd --uid $USER_UID --gid $USER_GID -M $USERNAME
 
 # setup uploads volume
 RUN mkdir /uploads && chown -R $USER_UID:$USER_GID /uploads && mkdir /db && chown -R $USER_UID:$USER_GID /db

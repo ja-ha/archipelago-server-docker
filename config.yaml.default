@@ -5,16 +5,13 @@
 # TODO
 SELFHOST: true
 
-SELFGEN: false
+SELFGEN: true
 
 # Maximum concurrent world gens
-GENERATORS: 1
+# GENERATORS: 4
 
 # TODO
 SELFLAUNCH: true
-
-# Maximum concurrent world gens
-#GENERATORS: 8
 
 # TODO
 #DEBUG: false
@@ -23,6 +20,7 @@ SELFLAUNCH: true
 PORT: 8080
 
 # Place where uploads go.
+# DON'T CHANGE THIS, CHANGE THE MOUNT IN docker-compose.yaml
 UPLOAD_FOLDER: /uploads
 
 # Maximum upload size.  Default is 64 megabyte (64 * 1024 * 1024)
@@ -41,6 +39,7 @@ SECRET_KEY: "CHANGE THIS"
 # Database provider details:
 PONY:
   provider: "sqlite"
+  # DON'T CHANGE THIS, CHANGE THE MOUNT IN docker-compose.yaml
   filename: "/db/ap.db3" # This MUST be the ABSOLUTE PATH to the file.
   create_db: true
 
